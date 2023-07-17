@@ -1,18 +1,21 @@
 <h1>Contraintes techniques</h1>
 <h2>React :</h2>
 Il est impératif d’utiliser ces éléments de React pour un code de qualité :
-● Découpage en composants modulaires et réutilisables ;
-● Un composant par fichier ;
-● Structure logique des différents fichiers ;
-● Utilisation des props entre les composants ;
-● Utilisation du state dans les composants quand c'est nécessaire ;
-● Gestion des événements ;
-● Listes : React permet de faire des choses vraiment intéressantes avec
+<ul>
+<li>Découpage en composants modulaires et réutilisables ;</li> 
+<li> Un composant par fichier ;</li> 
+<li> Structure logique des différents fichiers ;</li> 
+<li> Utilisation des props entre les composants ;</li> 
+<li> Utilisation du state dans les composants quand c'est nécessaire ;</li> 
+<li> Gestion des événements ;</li> 
+<li> Listes : React permet de faire des choses vraiment intéressantes avec
 les listes, en itérant dessus, par exemple avec map. Il faut les utiliser
-autant que possible.
+autant que possible.</li> 
+</ul>
 Il est également recommandé, mais pas imposé, d’utiliser des composants
 fonctionnels plutôt que des composants classes.
-React Router :
+
+<h2>React Router :</h2>
 ● Les paramètres des routes sont gérés par React Router dans l'URL
 pour récupérer les informations de chaque logement.
 ● Il existe une page par route.
