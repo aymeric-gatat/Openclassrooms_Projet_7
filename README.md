@@ -16,12 +16,16 @@ Il est également recommandé, mais pas imposé, d’utiliser des composants
 fonctionnels plutôt que des composants classes.
 
 <h2>React Router :</h2>
-● Les paramètres des routes sont gérés par React Router dans l'URL
-pour récupérer les informations de chaque logement.
-● Il existe une page par route.
-● La page 404 est renvoyée pour chaque route inexistante, ou si une
+<ul>
+<li>Les paramètres des routes sont gérés par React Router dans l'URL
+pour récupérer les informations de chaque logement.</li> 
+<li>Il existe une page par route.</li> 
+<li>La page 404 est renvoyée pour chaque route inexistante, ou si une
 valeur présente dans l’URL ne fait pas partie des données
-renseignées.
-● La logique du routeur est réunie dans un seul fichier.
-Général :
-● Le code ne doit pas produire d'erreur ou de warning dans la console.
+renseignées.</li> 
+<li>La logique du routeur est réunie dans un seul fichier.</li>
+</ul>
+<h2>Général :</h2>
+<ul>
+<li>Le code ne doit pas produire d'erreur ou de warning dans la console.</li>
+</ul>
