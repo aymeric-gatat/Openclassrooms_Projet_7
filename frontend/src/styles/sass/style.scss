@@ -1,0 +1,23 @@
+@import "./variables.scss", "./mixins.scss", "./animations.scss", "./composents.scss";
+
+body {
+  margin: 0;
+  padding: 0;
+  @include flexbox(column, flex-start, center);
+}
+
+#root {
+  @include flexbox(column, flex-start, center);
+  width: 100%;
+  margin: 0 100px;
+  @media screen and (max-width: 768px) {
+    margin: 0 20px;
+  }
+}
+
+.App {
+  @include flexbox(column, flex-start, center);
+  max-width: 1240px;
+  width: calc(100% - 40px);
+  padding: 0 20px;
+}

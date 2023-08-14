@@ -1,0 +1,9 @@
+// Card
+
+// Flex
+@mixin flexbox($flex-direction: row, $justify-content: center, $align-items: center) {
+  display: flex;
+  align-items: $align-items;
+  justify-content: $justify-content;
+  flex-direction: $flex-direction;
+}

@@ -1,13 +1,291 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;400;600;800&display=swap");
+* {
+  font-family: "Montserrat", sans-serif;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: row;
+  margin: 40px 100px;
+  width: 100%;
+  max-width: 1240px;
 }
+header img {
+  width: auto;
+  height: 68px;
+}
+header nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-direction: row;
+  width: 310px;
+  height: 68px;
+}
+header nav a {
+  font-size: 18px;
+  color: #ff6060;
+  text-decoration: none;
+}
+header nav a:hover {
+  text-decoration: underline;
+}
+@media screen and (max-width: 768px) {
+  header {
+    margin: 20px;
+  }
+  header img {
+    height: 47px;
+  }
+  header nav {
+    max-width: 50%;
+    height: 47px;
+  }
+  header nav a {
+    text-transform: uppercase;
+    font-size: 14px;
+  }
+}
+
+footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background-color: #000000;
+  width: 100%;
+  min-height: 209px;
+}
+footer img {
+  width: 100%;
+  height: 40px;
+}
+footer p {
+  color: #ffffff;
+}
+
+.tag-container {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: row;
+  gap: 10px;
+}
+
+.tag {
+  background-color: #ff6060;
+  color: #ffffff;
+  min-width: 115px;
+  width: min-content;
+  height: 25px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+}
+
+.home-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  max-width: 1240px;
+  width: 100%;
+  height: 223px;
+  padding: 30px 10px;
+  border-radius: 10px;
+  background: center center/cover no-repeat border-box;
+  z-index: 1;
+}
+.home-container h1 {
+  font-weight: 400;
+  font-size: 36px;
+  color: #ffffff;
+  z-index: 2;
+  text-align: center;
+}
+.home-container::before {
+  position: absolute;
+  content: "";
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+}
+
+.location {
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-start;
+  flex-direction: row;
+  position: relative;
+  width: 340px;
+  height: 340px;
+  border-radius: 10px;
+  padding: 0px;
+  margin: 0px;
+  background-color: #ff6060;
+  overflow: hidden;
+}
+.location::before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  content: "";
+  width: 340px;
+  height: 340px;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgb(0, 0, 0) 100%);
+  opacity: 0.3;
+  border-radius: 10px;
+  z-index: 2;
+}
+.location a {
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-start;
+  flex-direction: row;
+  width: 340px;
+  height: 340px;
+  z-index: 5;
+  text-decoration: none;
+  margin: 0;
+}
+.location a .title-location {
+  font-size: 18px;
+  color: #ffffff;
+  z-index: 3;
+  margin: 20px;
+}
+@media screen and (max-width: 768px) {
+  .location {
+    height: 255px;
+  }
+}
+.location img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 50px 60px;
+  width: 100%;
+  max-width: 1240px;
+  margin: 40px 0;
+  padding: 56px 0px;
+  border-radius: 25px;
+  background-color: #f6f6f6;
+}
+
+.container-about {
+  background-color: #ffffff;
+  width: 80%;
+  margin-top: 31px;
+  padding: 0;
+}
+.container-about ul {
+  padding: 0;
+  max-width: 1240px;
+  width: 100%;
+}
+.container-about .dropdown {
+  max-width: 1240px;
+  width: 100%;
+  list-style: none;
+  margin: 15px 0;
+}
+.container-about .dropdown .dropDownList {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: row;
+  position: relative;
+  max-width: 1240px;
+  width: auto;
+  height: 47px;
+  background-color: #ff6060;
+  border-radius: 5px;
+  padding-left: 18px;
+  margin: 0;
+  font-size: 18px;
+  color: #ffffff;
+  z-index: 2;
+}
+.container-about .dropdown .dropDownList::before {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  position: absolute;
+  right: 29px;
+  width: 32px;
+  height: 32px;
+  color: #ffffff;
+}
+.container-about .dropdown .dropDownText {
+  position: relative;
+  top: -7px;
+  max-width: 1240px;
+  width: auto;
+  background-color: #f6f6f6;
+  color: #ff6060;
+  border-radius: 5px;
+  padding: 36px 27px 19px 18px;
+  margin: 0;
+  z-index: 0;
+}
+.container-about .dropdown .haut::before {
+  content: url(../assets/fleche-haut.png);
+}
+.container-about .dropdown .bas::before {
+  content: url(../assets/fleche-bas.png);
+}
+@media screen and (max-width: 768px) {
+  .container-about {
+    width: 100%;
+  }
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: column;
+}
+
+#root {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: column;
+  width: 100%;
+  margin: 0 100px;
+}
+@media screen and (max-width: 768px) {
+  #root {
+    margin: 0 20px;
+  }
+}
+
+.App {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: column;
+  max-width: 1240px;
+  width: calc(100% - 40px);
+  padding: 0 20px;
+}
+
+/*# sourceMappingURL=index.css.map */
