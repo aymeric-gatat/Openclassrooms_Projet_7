@@ -1,45 +1,29 @@
-import React, { useState, useEffect } from "react";
-import Questions from "../../datas/questions.json";
+import React, { useState } from "react";
 
-const Dropdown = () => {
-  const [modules, setModules] = useState(Questions);
-  const [dropdownClass, setDropdownClass] = useState("");
+const Dropdown = ({ data, selectedKey }) => {
+  const [isOpenList, setIsOpenList] = useState(new Array(data.length).fill(false));
 
-  const handleModuleClick = (index) => {
-    setModules((prevModules) =>
-      prevModules.map((module, i) => {
-        if (i === index) {
-          return {
-            ...module,
-            isOpen: !module.isOpen,
-          };
-        }
-        return module;
-      })
-    );
+  const toggleDropdown = (index) => {
+    const updatedIsOpenList = [...isOpenList];
+    updatedIsOpenList[index] = !updatedIsOpenList[index];
+    setIsOpenList(updatedIsOpenList);
   };
 
-  useEffect(() => {
-    if (window.location.href.includes("/about") || window.location.href.includes("/logement")) {
-      setDropdownClass("dropdown");
-    } else {
-      setDropdownClass("");
-    }
-  }, []);
-
   return (
-    <ul>
-      {modules.map((module, index) => {
-        const fleche = module.isOpen ? "haut" : "bas"; // Détermine la valeur de la flèche
-        return (
-          <li key={index} className={dropdownClass}>
-            <p onClick={() => handleModuleClick(index)} className={`dropDownList ${fleche}`}>
-              {module.name}
-            </p>
-            {module.isOpen && <p className="dropDownText">{module.content}</p>}
+    <ul className="dropdown">
+      {!Array.isArray(data) && (
+        <li onClick={() => toggleDropdown(0)}>
+          <p className={`dropDownList ${isOpenList[0] ? "haut" : "bas"}`}>{selectedKey === "description" ? "Description" : selectedKey === "equipments" ? "Equipements" : selectedKey}</p>
+          {isOpenList[0] && <p className="dropDownText">{data[selectedKey]}</p>}
+        </li>
+      )}
+      {Array.isArray(data) &&
+        data.map((item, index) => (
+          <li key={index} onClick={() => toggleDropdown(index)}>
+            <p className={`dropDownList ${isOpenList[index] ? "haut" : "bas"}`}>{item.name}</p>
+            {isOpenList[index] && <p className="dropDownText">{item.content}</p>}
           </li>
-        );
-      })}
+        ))}
     </ul>
   );
 };

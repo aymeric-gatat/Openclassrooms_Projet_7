@@ -106,7 +106,7 @@ footer p {
   font-size: 36px;
   color: #ffffff;
   z-index: 2;
-  text-align: center;
+  margin: 0;
 }
 .home-container::before {
   position: absolute;
@@ -115,6 +115,16 @@ footer p {
   height: 100%;
   background: rgba(0, 0, 0, 0.3);
   border-radius: 10px;
+}
+@media screen and (max-width: 768px) {
+  .home-container {
+    width: auto;
+    max-height: 111px;
+    padding: 0 16px;
+  }
+  .home-container h1 {
+    font-size: 24px;
+  }
 }
 
 .location {
@@ -128,7 +138,6 @@ footer p {
   border-radius: 10px;
   padding: 0px;
   margin: 0px;
-  background-color: #ff6060;
   overflow: hidden;
 }
 .location::before {
@@ -144,6 +153,7 @@ footer p {
   z-index: 2;
 }
 .location a {
+  display: block;
   display: flex;
   align-items: flex-end;
   justify-content: flex-start;
@@ -162,13 +172,21 @@ footer p {
 }
 @media screen and (max-width: 768px) {
   .location {
+    width: 100%;
+    max-width: 335px;
     height: 255px;
+  }
+  .location a {
+    width: auto;
+    max-width: 335px;
+    height: 100%;
   }
 }
 .location img {
   position: absolute;
   width: 100%;
   height: 100%;
+  z-index: 0;
 }
 
 .container {
@@ -185,6 +203,14 @@ footer p {
   border-radius: 25px;
   background-color: #f6f6f6;
 }
+@media screen and (max-width: 768px) {
+  .container {
+    background-color: transparent;
+    margin-top: 22px;
+    gap: 20px;
+    padding: 0;
+  }
+}
 
 .container-about {
   background-color: #ffffff;
@@ -198,50 +224,53 @@ footer p {
   width: 100%;
 }
 .container-about .dropdown {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  flex-direction: column;
+  gap: 20px;
   max-width: 1240px;
   width: 100%;
   list-style: none;
   margin: 15px 0;
 }
-.container-about .dropdown .dropDownList {
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  flex-direction: row;
+.container-about .dropdown li {
+  width: 100%;
+}
+.container-about .dropdown li .dropDownList {
   position: relative;
-  max-width: 1240px;
-  width: auto;
-  height: 47px;
-  background-color: #ff6060;
-  border-radius: 5px;
-  padding-left: 18px;
-  margin: 0;
-  font-size: 18px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  flex-direction: column;
   color: #ffffff;
+  background-color: #ff6060;
+  min-width: 100%;
+  min-height: 30px;
+  border-radius: 5px;
+  padding: 5.5px 11.5px;
+  margin: 0;
   z-index: 2;
 }
-.container-about .dropdown .dropDownList::before {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: row;
+.container-about .dropdown li .dropDownList::before {
   position: absolute;
+  top: 8px;
   right: 29px;
-  width: 32px;
-  height: 32px;
-  color: #ffffff;
+  transition: 0.3s ease-in-out;
 }
-.container-about .dropdown .dropDownText {
+.container-about .dropdown li .dropDownText {
   position: relative;
-  top: -7px;
-  max-width: 1240px;
-  width: auto;
-  background-color: #f6f6f6;
+  top: -11px;
   color: #ff6060;
+  width: 100%;
+  min-height: 154px;
+  height: 100%;
+  background-color: #f6f6f6;
   border-radius: 5px;
-  padding: 36px 27px 19px 18px;
+  padding: 27px 11.5px 0 11.5px;
   margin: 0;
-  z-index: 0;
+  z-index: 1;
 }
 .container-about .dropdown .haut::before {
   content: url(../assets/fleche-haut.png);
@@ -252,6 +281,45 @@ footer p {
 @media screen and (max-width: 768px) {
   .container-about {
     width: 100%;
+  }
+}
+
+.main-error a {
+  display: block;
+  color: #ff6060;
+  font-size: 18px;
+  text-align: center;
+  width: 100%;
+  margin-top: 180px;
+}
+.main-error .container-error {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column-reverse;
+}
+.main-error .container-error .title404 {
+  text-align: center;
+  color: #ff6060;
+  font-size: 38px;
+  font-weight: normal;
+}
+.main-error .container-error .error404 {
+  color: #ff6060;
+  font-size: 288px;
+  font-weight: bold;
+  margin: 0;
+}
+@media screen and (max-width: 768px) {
+  .main-error .container-error .title404 {
+    font-size: 18px;
+  }
+  .main-error .container-error .error404 {
+    font-size: 99px;
+    margin-top: 195px;
+  }
+  .main-error a {
+    font-size: 14px;
   }
 }
 
@@ -270,12 +338,6 @@ body {
   justify-content: flex-start;
   flex-direction: column;
   width: 100%;
-  margin: 0 100px;
-}
-@media screen and (max-width: 768px) {
-  #root {
-    margin: 0 20px;
-  }
 }
 
 .App {

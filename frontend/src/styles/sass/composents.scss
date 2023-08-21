@@ -85,7 +85,7 @@ footer {
     font-size: $font-xlarge;
     color: $white;
     z-index: 2;
-    text-align: center;
+    margin: 0;
   }
   &::before {
     position: absolute;
@@ -94,6 +94,14 @@ footer {
     height: 100%;
     background: rgba($color: #000000, $alpha: 0.3);
     border-radius: 10px;
+  }
+  @media screen and (max-width: 768px) {
+    width: auto;
+    max-height: 111px;
+    padding: 0 16px;
+    h1 {
+      font-size: $font-large;
+    }
   }
 }
 
@@ -107,7 +115,6 @@ footer {
   border-radius: 10px;
   padding: 0px;
   margin: 0px;
-  background-color: $primary-color;
   overflow: hidden;
   &::before {
     position: absolute;
@@ -121,8 +128,8 @@ footer {
     border-radius: 10px;
     z-index: 2;
   }
-
   a {
+    display: block;
     @include flexbox(row, flex-start, flex-end);
     width: 340px;
     height: 340px;
@@ -137,12 +144,20 @@ footer {
     }
   }
   @media screen and (max-width: 768px) {
+    width: 100%;
+    max-width: 335px;
     height: 255px;
+    a {
+      width: auto;
+      max-width: 335px;
+      height: 100%;
+    }
   }
   img {
     position: absolute;
     width: 100%;
     height: 100%;
+    z-index: 0;
   }
 }
 
@@ -158,6 +173,12 @@ footer {
   padding: 56px 0px;
   border-radius: 25px;
   background-color: $grey;
+  @media screen and (max-width: 768px) {
+    background-color: transparent;
+    margin-top: 22px;
+    gap: 20px;
+    padding: 0;
+  }
 }
 
 // container About
@@ -175,44 +196,48 @@ footer {
   // Drowpdown
 
   .dropdown {
+    position: relative;
+    @include flexbox(column, space-evenly, center);
+    gap: 20px;
     max-width: 1240px;
     width: 100%;
     list-style: none;
     margin: 15px 0;
-    .dropDownList {
-      @include flexbox(row, flex-start, center);
-      position: relative;
-      max-width: 1240px;
-      width: auto;
-      height: 47px;
-      background-color: $primary-color;
-      border-radius: 5px;
-      padding-left: 18px;
-      margin: 0;
-      font-size: $font-medium;
-      color: $white;
-      z-index: 2;
-      &::before {
-        @include flexbox(row, center, center);
-        position: absolute;
-        right: 29px;
-        width: 32px;
-        height: 32px;
+    li {
+      width: 100%;
+      .dropDownList {
+        position: relative;
+        @include flexbox(column, center, flex-start);
         color: $white;
+        background-color: $primary-color;
+        min-width: 100%;
+        min-height: 30px;
+        border-radius: 5px;
+        padding: 5.5px 11.5px;
+        margin: 0;
+        z-index: 2;
+        &::before {
+          position: absolute;
+          top: 8px;
+          right: 29px;
+          transition: 0.3s ease-in-out;
+        }
+      }
+      .dropDownText {
+        position: relative;
+        top: -11px;
+        color: $primary-color;
+        width: 100%;
+        min-height: 154px;
+        height: 100%;
+        background-color: $grey;
+        border-radius: 5px;
+        padding: 27px 11.5px 0 11.5px;
+        margin: 0;
+        z-index: 1;
       }
     }
-    .dropDownText {
-      position: relative;
-      top: -7px;
-      max-width: 1240px;
-      width: auto;
-      background-color: $grey;
-      color: $primary-color;
-      border-radius: 5px;
-      padding: 36px 27px 19px 18px;
-      margin: 0;
-      z-index: 0;
-    }
+
     .haut {
       &::before {
         content: url(../assets/fleche-haut.png);
@@ -226,5 +251,47 @@ footer {
   }
   @media screen and (max-width: 768px) {
     width: 100%;
+  }
+}
+
+.main-error {
+  a {
+    display: block;
+    color: $primary-color;
+    font-size: $font-medium;
+    text-align: center;
+    width: 100%;
+    margin-top: 180px;
+  }
+  .container-error {
+    @include flexbox(column-reverse, center, center);
+    .title404 {
+      text-align: center;
+      color: $primary-color;
+      font-size: 38px;
+      font-weight: normal;
+    }
+
+    .error404 {
+      color: $primary-color;
+      font-size: 288px;
+      font-weight: bold;
+      margin: 0;
+    }
+  }
+  @media screen and (max-width: 768px) {
+    .container-error {
+      .title404 {
+        font-size: $font-medium;
+      }
+
+      .error404 {
+        font-size: 99px;
+        margin-top: 195px;
+      }
+    }
+    a {
+      font-size: $font-small;
+    }
   }
 }
