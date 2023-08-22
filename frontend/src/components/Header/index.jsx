@@ -1,24 +1,18 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import React from "react";
+import { Link, useLocation } from "react-router-dom";
 import logo from "../../assets/logo.png";
 
 function Header() {
-  const [activeLink, setActiveLink] = useState("");
-
-  const handleLinkClick = (link) => {
-    if (!window.location.pathname.includes("logement")) {
-      setActiveLink(link);
-    }
-  };
+  const location = useLocation(); // Utilisez useLocation pour obtenir l'URL actuelle
 
   return (
     <header>
       <img src={logo} alt="Kasa, trouver votre logement" className="logo" />
       <nav>
-        <Link to="/" className={activeLink === "accueil" ? "activeLink" : ""} onClick={() => handleLinkClick("accueil")}>
+        <Link to="/" className={location.pathname === "/" ? "active-link" : ""}>
           Accueil
         </Link>
-        <Link to="/about" className={activeLink === "about" ? "activeLink" : ""} onLoad={() => handleLinkClick("about")}>
+        <Link to="/about" className={location.pathname === "/about" ? "active-link" : ""}>
           À Propos
         </Link>
       </nav>

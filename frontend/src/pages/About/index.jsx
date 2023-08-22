@@ -6,8 +6,8 @@ function About() {
   document.title = "À Propos de Kasa";
   return (
     <div className="App">
-      <Entete />
       <div className="container container-about">
+        <Entete />
         <DropDown data={Questions} />
       </div>
     </div>

@@ -200,6 +200,9 @@ footer p {
   width: 100%;
   padding: 0 20px;
 }
+.container-about .home-container {
+  margin: 0;
+}
 .container-about .dropdown {
   max-width: 1240px;
   width: 100%;
@@ -207,6 +210,10 @@ footer p {
 @media screen and (max-width: 768px) {
   .container-about {
     width: 100%;
+  }
+  .container-about .home-container {
+    min-height: 223px;
+    max-height: auto;
   }
 }
 
@@ -481,6 +488,10 @@ footer p {
   .main-error a {
     font-size: 14px;
   }
+}
+
+.active-link {
+  text-decoration: underline;
 }
 
 body {

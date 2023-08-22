@@ -176,12 +176,19 @@ footer {
   background-color: $white;
   width: 100%;
   padding: 0 20px;
+  .home-container {
+    margin: 0;
+  }
   .dropdown {
     max-width: 1240px;
     width: 100%;
   }
   @media screen and (max-width: 768px) {
     width: 100%;
+    .home-container {
+      min-height: 223px;
+      max-height: auto;
+    }
   }
 }
 // Drowpdown
@@ -441,4 +448,8 @@ footer {
       font-size: $font-small;
     }
   }
+}
+
+.active-link {
+  text-decoration: underline;
 }
