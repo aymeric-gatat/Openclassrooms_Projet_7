@@ -22,7 +22,7 @@ ReactDOM.createRoot(rootElement).render(
         <Route path="/logement/:logementId" element={<Logement />} />
         <Route path="/*" element={<Error />} />
       </Routes>
-      {window.location.pathname !== "/*" && <Footer />}
+      <Footer />
     </Router>
   </React.StrictMode>
 );

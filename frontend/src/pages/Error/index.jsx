@@ -1,5 +1,5 @@
 function Error() {
-  const title = "Erreur 404";
+  const title = "Oups, vous êtes perdu";
   document.title = title;
 
   return (

@@ -449,7 +449,8 @@ footer p {
   font-size: 18px;
   text-align: center;
   width: 100%;
-  margin-top: 180px;
+  margin-top: 150px;
+  margin-bottom: 50px;
 }
 .main-error .container-error {
   display: flex;

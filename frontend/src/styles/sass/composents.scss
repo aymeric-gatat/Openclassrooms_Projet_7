@@ -407,7 +407,8 @@ footer {
     font-size: $font-medium;
     text-align: center;
     width: 100%;
-    margin-top: 180px;
+    margin-top: 150px;
+    margin-bottom: 50px;
   }
   .container-error {
     @include flexbox(column-reverse, center, center);

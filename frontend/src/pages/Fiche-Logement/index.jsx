@@ -11,10 +11,13 @@ import Carousel from "../../components/Utils/carousel";
 function Location() {
   const { logementId } = useParams();
   const location = locations.find((location) => location.id === logementId);
-  document.title = `Kasa | ${location.title}`;
+
   if (!location) {
+    document.title = "Oups, vous êtes perdu";
     return <Error />;
   } else {
+    document.title = `Kasa | ${location.title}`;
+
     return (
       <main className="logementPage">
         <Carousel data={location} />
