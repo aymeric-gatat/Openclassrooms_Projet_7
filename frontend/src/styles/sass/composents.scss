@@ -20,7 +20,11 @@ header {
         text-decoration: underline;
       }
     }
+    .activeLink {
+      text-decoration: underline;
+    }
   }
+
   @media screen and (max-width: 768px) {
     margin: 20px;
     img {
@@ -53,22 +57,6 @@ footer {
   }
 }
 
-// Tag
-.tag-container {
-  @include flexbox(row, flex-start, center);
-  gap: 10px;
-}
-
-.tag {
-  background-color: $primary-color;
-  color: $white;
-  min-width: 115px;
-  width: min-content;
-  height: 25px;
-  border-radius: 10px;
-  @include flexbox;
-}
-
 // Home Container
 .home-container {
   position: relative;
@@ -79,6 +67,7 @@ footer {
   padding: 30px 10px;
   border-radius: 10px;
   background: center center / cover no-repeat border-box;
+  margin-bottom: 30px;
   z-index: 1;
   h1 {
     font-weight: 400;
@@ -96,7 +85,7 @@ footer {
     border-radius: 10px;
   }
   @media screen and (max-width: 768px) {
-    width: auto;
+    width: calc(100% - 23px);
     max-height: 111px;
     padding: 0 16px;
     h1 {
@@ -185,72 +174,229 @@ footer {
 
 .container-about {
   background-color: $white;
-  width: 80%;
-  margin-top: 31px;
-  padding: 0;
-  ul {
-    padding: 0;
-    max-width: 1240px;
-    width: 100%;
-  }
-  // Drowpdown
-
+  width: 100%;
+  padding: 0 20px;
   .dropdown {
-    position: relative;
-    @include flexbox(column, space-evenly, center);
-    gap: 20px;
     max-width: 1240px;
     width: 100%;
-    list-style: none;
-    margin: 15px 0;
-    li {
-      width: 100%;
-      .dropDownList {
-        position: relative;
-        @include flexbox(column, center, flex-start);
-        color: $white;
-        background-color: $primary-color;
-        min-width: 100%;
-        min-height: 30px;
-        border-radius: 5px;
-        padding: 5.5px 11.5px;
-        margin: 0;
-        z-index: 2;
-        &::before {
-          position: absolute;
-          top: 8px;
-          right: 29px;
-          transition: 0.3s ease-in-out;
-        }
-      }
-      .dropDownText {
-        position: relative;
-        top: -11px;
-        color: $primary-color;
-        width: 100%;
-        min-height: 154px;
-        height: 100%;
-        background-color: $grey;
-        border-radius: 5px;
-        padding: 27px 11.5px 0 11.5px;
-        margin: 0;
-        z-index: 1;
-      }
-    }
-
-    .haut {
-      &::before {
-        content: url(../assets/fleche-haut.png);
-      }
-    }
-    .bas {
-      &::before {
-        content: url(../assets/fleche-bas.png);
-      }
-    }
   }
   @media screen and (max-width: 768px) {
     width: 100%;
+  }
+}
+// Drowpdown
+
+.dropdown {
+  position: relative;
+  @include flexbox(column, space-evenly, center);
+  gap: 20px;
+  list-style: none;
+  margin: 15px 0;
+  padding: 0;
+  li {
+    width: 100%;
+    cursor: pointer;
+    .dropDownList {
+      position: relative;
+      @include flexbox(column, center, flex-start);
+      color: $white;
+      background-color: $primary-color;
+      width: calc(100% - 23px);
+      min-height: 30px;
+      border-radius: 5px;
+      padding: 5.5px 11.5px;
+      margin: 0;
+      z-index: 2;
+      &::before {
+        position: absolute;
+        top: 8px;
+        right: 29px;
+        transition: 0.3s ease-in-out;
+      }
+    }
+    .dropDownText {
+      position: relative;
+      top: -11px;
+      color: $primary-color;
+      width: calc(100% - 23px);
+      min-height: 154px;
+      height: 100%;
+      background-color: $grey;
+      border-radius: 5px;
+      padding: 27px 11.5px 0 11.5px;
+      margin: 0;
+      z-index: 1;
+    }
+  }
+
+  .haut {
+    &::before {
+      content: url(../assets/fleche-haut.png);
+    }
+  }
+  .bas {
+    &::before {
+      content: url(../assets/fleche-bas.png);
+    }
+  }
+}
+
+.logementPage {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: 1fr 150px 1fr;
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+  max-width: 1240px;
+  width: calc(100% - 40px);
+  padding: 0 20px;
+  .carousel {
+    grid-area: 1 / 1 / 2 / 5;
+    position: relative;
+    width: 100%;
+    .imageCarousel {
+      width: 100%;
+      height: 335px;
+      overflow: hidden;
+      object-fit: cover;
+      object-position: center;
+      border-radius: 25px;
+    }
+    button {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: none;
+      border: none;
+      cursor: pointer;
+    }
+    .prevButton {
+      left: 29px;
+      transform: rotate(-90deg);
+    }
+    .nextButton {
+      right: 29px;
+      transform: rotate(90deg);
+    }
+    .indexImage {
+      position: absolute;
+      bottom: 25px;
+      left: 50%;
+      transform: translateX(-50%);
+      color: $white;
+    }
+  }
+  .section-title {
+    grid-area: 2 / 1 / 3 / 4;
+    width: max-content;
+    color: $primary-color;
+    margin: 0;
+    h1,
+    p {
+      margin: 5px;
+      padding: 0;
+      letter-spacing: 1px;
+    }
+    h1 {
+      font-size: $font-xlarge;
+      font-weight: 400;
+    }
+    .container-tag {
+      @include flexbox(row, flex-start, center);
+      flex-wrap: wrap;
+      gap: 10px;
+      .tag {
+        background-color: $primary-color;
+        color: $white;
+        min-width: 115px;
+        width: max-content;
+        height: 25px;
+        padding: 0 20px;
+        border-radius: 10px;
+        @include flexbox;
+      }
+    }
+  }
+  .section-host {
+    grid-area: 2 / 4 / 3 / 5;
+    width: 100%;
+    text-align: right;
+    .host-info {
+      @include flexbox(row-reverse, flex-start, center);
+      gap: 10px;
+      margin: 0;
+      padding: 0;
+      img {
+        width: 64px;
+        height: 64px;
+        border-radius: 100%;
+      }
+      p {
+        font-size: $font-large;
+        color: $primary-color;
+        margin: 0;
+      }
+    }
+    .section-rating {
+      @include flexbox(row, flex-end, center);
+      gap: 10px;
+      margin-top: 10px;
+    }
+  }
+  .dropdown {
+    width: 100%;
+    grid-area: 3 / 1 / 5 / 5;
+    flex-direction: row;
+    align-items: flex-start;
+  }
+  @media screen and (max-width: 720px) {
+    @include flexbox(column, center, center);
+    .carousel {
+    }
+    .section-title {
+      width: 100%;
+      h1 {
+        font-size: $font-large;
+      }
+      p {
+        font-size: $font-small;
+      }
+      .container-tag {
+        margin-top: 10px;
+        gap: 5px;
+        .tag {
+          font-size: $font-xsmall;
+          padding: 0 5px;
+          margin: 0;
+        }
+      }
+    }
+    .section-host {
+      @include flexbox(row-reverse, space-between, center);
+      width: 100%;
+      .host-info {
+        align-items: center;
+        gap: 10px;
+        img {
+          width: 38px;
+          height: 38px;
+        }
+        p {
+          width: 65%;
+          font-size: $font-small;
+        }
+      }
+      .section-rating {
+        gap: 5px;
+        img {
+          width: 13px;
+          height: 13px;
+        }
+      }
+    }
+    .dropdown {
+      flex-direction: column;
+    }
   }
 }
 

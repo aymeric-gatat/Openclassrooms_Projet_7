@@ -1,6 +1,6 @@
 function Host({ location }) {
   return (
-    <div className="section-host">
+    <div className="host-info">
       <img src={location.host.picture} alt={location.host.name} />
       <p>{location.host.name}</p>
     </div>

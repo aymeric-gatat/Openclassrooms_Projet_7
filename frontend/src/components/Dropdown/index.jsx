@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const Dropdown = ({ data, selectedKey }) => {
+function Dropdown({ data, selectedKey }) {
   const [isOpenList, setIsOpenList] = useState(new Array(data.length).fill(false));
 
   const toggleDropdown = (index) => {
@@ -26,6 +26,6 @@ const Dropdown = ({ data, selectedKey }) => {
         ))}
     </ul>
   );
-};
+}
 
 export default Dropdown;
