@@ -7,6 +7,7 @@ header {
   img {
     width: auto;
     height: 68px;
+    padding-left: 20px;
   }
   nav {
     @include flexbox(row, space-around, center);
@@ -28,7 +29,7 @@ header {
   @media screen and (max-width: 768px) {
     margin: 20px;
     img {
-      height: 47px;
+      height: 37px;
     }
     nav {
       max-width: 50%;
@@ -226,11 +227,10 @@ footer {
       top: -11px;
       color: $primary-color;
       width: calc(100% - 23px);
-      min-height: 154px;
       height: 100%;
       background-color: $grey;
       border-radius: 5px;
-      padding: 27px 11.5px 0 11.5px;
+      padding: 27px 11.5px;
       margin: 0;
       z-index: 1;
       @include flexbox(column, flex-start, flex-start);
@@ -361,6 +361,10 @@ footer {
   @media screen and (max-width: 720px) {
     @include flexbox(column, center, center);
     .carousel {
+      max-height: 225px;
+      img {
+        max-height: 225px;
+      }
     }
     .section-title {
       width: 100%;
@@ -386,6 +390,7 @@ footer {
       .host-info {
         align-items: center;
         gap: 10px;
+        margin-top: 10px;
         img {
           width: 38px;
           height: 38px;
@@ -397,6 +402,7 @@ footer {
       }
       .section-rating {
         gap: 5px;
+        margin: 0;
         img {
           width: 13px;
           height: 13px;
@@ -405,6 +411,7 @@ footer {
     }
     .dropdown {
       flex-direction: column;
+      gap: 0;
     }
   }
 }
