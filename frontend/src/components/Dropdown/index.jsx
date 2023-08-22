@@ -11,7 +11,7 @@ function Dropdown({ data, selectedKey }) {
 
   return (
     <ul className="dropdown">
-      {!Array.isArray(data) && (
+      {!Array.isArray(data[selectedKey]) && (
         <li onClick={() => toggleDropdown(0)}>
           <p className={`dropDownList ${isOpenList[0] ? "haut" : "bas"}`}>{selectedKey === "description" ? "Description" : selectedKey === "equipments" ? "Equipements" : selectedKey}</p>
           {isOpenList[0] && <p className="dropDownText">{data[selectedKey]}</p>}
@@ -24,6 +24,19 @@ function Dropdown({ data, selectedKey }) {
             {isOpenList[index] && <p className="dropDownText">{item.content}</p>}
           </li>
         ))}
+      {Array.isArray(data[selectedKey]) && (
+        <li onClick={() => toggleDropdown(0)}>
+          <p className={`dropDownList ${isOpenList[0] ? "haut" : "bas"}`}>{selectedKey === "description" ? "Description" : selectedKey === "equipments" ? "Equipements" : selectedKey}</p>
+          {/*{isOpenList[0] && <p className="dropDownText">{data[selectedKey]}</p>}*/}
+          {isOpenList[0] && (
+            <p className="dropDownText">
+              {data[selectedKey].map((item, index) => (
+                <span key={index + 1}>{item}</span>
+              ))}
+            </p>
+          )}
+        </li>
+      )}
     </ul>
   );
 }

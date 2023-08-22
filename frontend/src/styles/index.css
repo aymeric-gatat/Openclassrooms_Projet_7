@@ -265,6 +265,11 @@ footer p {
   padding: 27px 11.5px 0 11.5px;
   margin: 0;
   z-index: 1;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-direction: column;
+  gap: 5px;
 }
 .dropdown .haut::before {
   content: url(../assets/fleche-haut.png);
